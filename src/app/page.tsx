@@ -7,7 +7,6 @@ export default function Home() {
     <>
       <NavBar />
       <Hero />
-      <Button color="primary">Press me</Button>;<h3>Test</h3>
     </>
   );
 }
