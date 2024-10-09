@@ -10,9 +10,13 @@ export function Hero() {
           Create your content on inPublic, build community & get early investors
           as your supporters
         </p>
-        <div className="flex w-full">
-          <Button>Create your Profile</Button>
-          <Button>Search Profiles</Button>
+        <div className="flex w-full justify-between pt-6">
+          <Button color="primary" className="w-min-20">
+            Create
+          </Button>
+          <Button color="secondary" className="w-min-20">
+            Search
+          </Button>
         </div>
       </div>
     </div>
