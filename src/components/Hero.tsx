@@ -10,14 +10,18 @@ export function Hero() {
           Create your content on inPublic, build community & get early investors
           as your supporters
         </p>
-        <div className="flex w-full justify-between pt-6">
-          <Button color="primary" className="w-min-20">
+        <div className="flex w-full justify-around pt-6">
+          <Button color="primary" size="lg">
             Create
           </Button>
-          <Button color="secondary" className="w-min-20">
+          <Button color="secondary" size="lg">
             Search
           </Button>
         </div>
+      </div>
+
+      <div className="relative flex h-full w-full justify-center">
+        <div className="min-h-[600px] w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90"></div>
       </div>
     </div>
   );
