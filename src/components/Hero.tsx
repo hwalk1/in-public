@@ -2,7 +2,7 @@ import { Button } from "@nextui-org/react";
 export function Hero() {
   return (
     <div className="pt-4 lg:pt-10">
-      <div className="px-[20px] lg: px-[280px]">
+      <div className="px-[20px] lg:px-[280px]">
         <h1 className="text-center text-[32px] leading-[40px] font-medium lg:text-[64px] lg:leading-[72px]">
           Share your journey, find your purpose
         </h1>
