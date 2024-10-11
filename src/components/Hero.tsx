@@ -21,7 +21,7 @@ export function Hero() {
       </div>
 
       <div className="relative flex h-full w-full justify-center">
-        <div className="min-h-[100px] w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90"></div>
+        <div className="min-h-[1000px] w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90"></div>
       </div>
     </div>
   );
