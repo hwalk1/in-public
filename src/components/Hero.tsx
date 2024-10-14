@@ -13,13 +13,13 @@ export const Hero = () => {
         </p>
       </div>
 
-      <div className="relative flex h-full w-full justify-center">
-        <div className="flex-col h-screen w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90 flex justify-center">
-          <div className="w-400  pt-4 gap-4 flex">
+      <div className="flex h-full w-full justify-center">
+        <div className="flex flex-col h-screen w-full justify-center object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90">
+          <div className="max-w-[500px] ">
             <Input type="email" label="email" />
             <Input type="username" label="username" />
           </div>
-          <div className="flex w-full justify-around pt-6">
+          <div className="flex justify-center pt-6">
             <Button color="primary" size="lg">
               Create
             </Button>
