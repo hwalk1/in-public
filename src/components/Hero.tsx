@@ -9,18 +9,23 @@ export const Hero = () => {
         </h1>
         <p className="text-center pt-6 text-gray-600 lg:text-[18px] lg:leading-7">
           Create your content on inPublic, build community & get early investors
-          as your supporters
+          as your supporters.
+        </p>
+        <p className="text-center pt-6 text-gray-600 lg:text-[18px] lg:leading-7">
+          Reserve your username below and be the first to join the beta program.
         </p>
       </div>
 
-      <div className="flex h-full w-full justify-center">
-        <div className="flex flex-col h-screen w-full justify-center object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90">
-          <div className="max-w-[500px] ">
-            <Input type="email" label="email" />
-            <Input type="username" label="username" />
+      <div className="flex h-full w-full ">
+        <div className="flex flex-col h-screen w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90 p-6">
+          <div className="flex w-full justify-center">
+            <div className="min-w-[600px] justify-center">
+              <Input type="email" label="Email" />
+              <Input type="username" label="Username" className="pt-6" />
+            </div>
           </div>
-          <div className="flex justify-center pt-6">
-            <Button color="primary" size="lg">
+          <div className="flex justify-center pt-6 min-w-11">
+            <Button color="primary" size="lg" className="min-w-[150px]">
               Create
             </Button>
           </div>
