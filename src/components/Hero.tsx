@@ -1,6 +1,10 @@
+"use server";
+
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
+import { serverHooks } from "next/dist/server/app-render/entry-base";
 export const Hero = () => {
+  const formAction = async (formData) => {};
   return (
     <div className="pt-4 lg:pt-10">
       <div className="px-[20px] lg:px-[280px]">
@@ -17,7 +21,7 @@ export const Hero = () => {
       </div>
 
       <div className="flex h-full w-full ">
-        <form action="" className="flex h-full w-full ">
+        <form action={formAction} className="flex h-full w-full ">
           <div className="flex flex-col h-screen w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90 p-6">
             <div className="flex w-full justify-center">
               <div className="min-w-[600px] justify-center">
