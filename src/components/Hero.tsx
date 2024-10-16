@@ -12,24 +12,31 @@ export const Hero = () => {
           as your supporters.
         </p>
         <p className="text-center pt-6 text-gray-600 lg:text-[18px] lg:leading-7">
-          Reserve your username below and be the first to join the beta program.
+          Reserve your Username below and be the first to join the beta program.
         </p>
       </div>
 
       <div className="flex h-full w-full ">
-        <div className="flex flex-col h-screen w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90 p-6">
-          <div className="flex w-full justify-center">
-            <div className="min-w-[600px] justify-center">
-              <Input type="email" label="Email" />
-              <Input type="username" label="Username" className="pt-6" />
+        <form action="" className="flex h-full w-full ">
+          <div className="flex flex-col h-screen w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90 p-6">
+            <div className="flex w-full justify-center">
+              <div className="min-w-[600px] justify-center">
+                <Input type="email" label="Email" />
+                <Input type="text" label="Username" className="pt-6" />
+              </div>
+            </div>
+            <div className="flex justify-center pt-6 min-w-11">
+              <Button
+                color="primary"
+                size="lg"
+                className="min-w-[150px]"
+                type="submit"
+              >
+                Submit
+              </Button>
             </div>
           </div>
-          <div className="flex justify-center pt-6 min-w-11">
-            <Button color="primary" size="lg" className="min-w-[150px]">
-              Create
-            </Button>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   );
