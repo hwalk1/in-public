@@ -1,8 +1,7 @@
-"use server";
+"use client";
 
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
-import { serverHooks } from "next/dist/server/app-render/entry-base";
 export const Hero = () => {
   const formAction = async (formData) => {};
   return (
