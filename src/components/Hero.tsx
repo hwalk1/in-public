@@ -2,8 +2,11 @@
 
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
+import { FormEvent } from "react";
 export const Hero = () => {
-  const formAction = async (formData) => {};
+  const formAction = async (formData: FormEvent) => {
+    const formD;
+  };
   return (
     <div className="pt-4 lg:pt-10">
       <div className="px-[20px] lg:px-[280px]">
