@@ -7,7 +7,12 @@ export async function POST() {
   );
 
   console.log(supabase);
-  return Response.json({ supabase });
+
+  const { error } = await supabase
+    .from("sign-up")
+    .insert({ username: 123, email: "Denmark@welcome" });
+
+  return Response.json({ error });
 }
 
 // export async function GET() {
