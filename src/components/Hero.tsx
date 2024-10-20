@@ -23,7 +23,7 @@ export const Hero = () => {
       return response.json();
     };
     postData().then((data) => {
-      alert(data.message);
+      console.log(data);
     });
   };
 
