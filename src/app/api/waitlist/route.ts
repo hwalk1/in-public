@@ -1,18 +1,18 @@
 import { createClient } from "@supabase/supabase-js";
 
-export async function POST() {
+export async function POST(request: Request) {
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  console.log(supabase);
+  const res = await request.json();
 
   const { error } = await supabase
     .from("sign-up")
-    .insert({ username: 123, email: "Denmark@welcome" });
+    .insert({ username: res.username, email: res.email });
 
-  return Response.json({ error });
+  return Response.json(error);
 }
 
 // export async function GET() {
