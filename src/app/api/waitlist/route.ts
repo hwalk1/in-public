@@ -1,13 +1,18 @@
 import { createClient } from "@supabase/supabase-js";
 
-export async function POST() {
+export async function POST(request: Request) {
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  console.log(supabase);
-  return Response.json({ supabase });
+  const res = await request.json();
+
+  const { data } = await supabase
+    .from("sign-up")
+    .insert({ username: res.username, email: res.email });
+
+  return Response.json(data);
 }
 
 // export async function GET() {

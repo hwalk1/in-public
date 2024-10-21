@@ -3,13 +3,28 @@ import { FormEvent, useState } from "react";
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
 
+interface Data {
+  username: string;
+  email: string;
+}
+
 export const Hero = () => {
   const [data, setData] = useState({ username: "", email: "" });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log("welcome");
-    console.log(data);
+    const postData = async () => {
+      const formData: Data = data;
+
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+      return response.json();
+    };
+    postData().then((data) => {
+      console.log(data);
+    });
   };
 
   return (
