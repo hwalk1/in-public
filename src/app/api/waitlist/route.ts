@@ -8,11 +8,11 @@ export async function POST(request: Request) {
 
   const res = await request.json();
 
-  const { error } = await supabase
+  const { data } = await supabase
     .from("sign-up")
     .insert({ username: res.username, email: res.email });
 
-  return Response.json(error);
+  return Response.json(data);
 }
 
 // export async function GET() {
