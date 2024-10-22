@@ -2,6 +2,8 @@
 import { FormEvent, useState } from "react";
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
+import { useFormik } from "formik";
+import { schema } from "@/app/Schemas/schema";
 
 interface Data {
   username: string;
@@ -11,21 +13,29 @@ interface Data {
 export const Hero = () => {
   const [data, setData] = useState({ username: "", email: "" });
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    const postData = async () => {
-      const formData: Data = data;
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      email: "",
+    },
+    validationSchema: schema,
+    onSubmit: async (values) => {
+      const postData = async () => {
+        const formData: Data = values;
 
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        body: JSON.stringify(formData),
+        const response = await fetch("/api/waitlist", {
+          method: "POST",
+          body: JSON.stringify(formData),
+        });
+        return response.json();
+      };
+      postData().then((data) => {
+        console.log(data);
       });
-      return response.json();
-    };
-    postData().then((data) => {
-      console.log(data);
-    });
-  };
+    },
+  });
+
+  const { errors, touched, values, handleChange, handleSubmit } = formik;
 
   return (
     <div className="pt-4 lg:pt-10">
