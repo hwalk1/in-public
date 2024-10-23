@@ -28,6 +28,7 @@ export const Hero = () => {
   });
 
   const { errors, touched, values, handleChange, handleSubmit } = formik;
+  console.log({ errors, touched });
 
   return (
     <div className="pt-4 lg:pt-10">
@@ -55,7 +56,8 @@ export const Hero = () => {
                   id="email"
                   onChange={handleChange}
                   value={values.email}
-                  isInvalid={errors.email}
+                  isInvalid={!!errors.email}
+                  errorMessage={errors.email}
                 />
                 <Input
                   type="text"
