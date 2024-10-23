@@ -1,31 +1,23 @@
 "use client";
-import { FormEvent, useState } from "react";
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
 import { useFormik } from "formik";
 import { schema } from "@/app/Schemas/schema";
 
-interface Data {
-  username: string;
-  email: string;
-}
-
 export const Hero = () => {
-  const [data, setData] = useState({ username: "", email: "" });
-
   const formik = useFormik({
     initialValues: {
       username: "",
       email: "",
     },
     validationSchema: schema,
-    onSubmit: async (values) => {
+    onSubmit: (values) => {
+      console.log(values);
+      console.log("submitting");
       const postData = async () => {
-        const formData: Data = values;
-
         const response = await fetch("/api/waitlist", {
           method: "POST",
-          body: JSON.stringify(formData),
+          body: JSON.stringify(values),
         });
         return response.json();
       };
@@ -63,6 +55,7 @@ export const Hero = () => {
                   id="email"
                   onChange={handleChange}
                   value={values.email}
+                  isInvalid={errors.email}
                 />
                 <Input
                   type="text"
