@@ -60,17 +60,17 @@ export const Hero = () => {
                 <Input
                   type="email"
                   label="Email"
-                  onChange={(e) => setData({ ...data, email: e.target.value })}
-                  value={data.email}
+                  id="email"
+                  onChange={handleChange}
+                  value={values.email}
                 />
                 <Input
                   type="text"
                   label="Username"
+                  id="username"
                   className="pt-6"
-                  onChange={(e) =>
-                    setData({ ...data, username: e.target.value })
-                  }
-                  value={data.username}
+                  onChange={handleChange}
+                  value={values.username}
                 />
               </div>
             </div>
