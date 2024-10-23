@@ -66,6 +66,8 @@ export const Hero = () => {
                   className="pt-6"
                   onChange={handleChange}
                   value={values.username}
+                  isInvalid={!!errors.username}
+                  errorMessage={errors.username}
                 />
               </div>
             </div>
