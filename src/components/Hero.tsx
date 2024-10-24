@@ -2,7 +2,7 @@
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
 import { useFormik } from "formik";
-import { schema } from "@/app/Schemas/schema";
+import { schema } from "../app/Schemas/schema";
 console.log({ schema });
 
 export const Hero = () => {
