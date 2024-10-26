@@ -8,9 +8,10 @@ export async function POST(request: Request) {
 
   const res = await request.json();
 
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("sign-up")
-    .insert({ username: res.username, email: res.email });
-  console.log(Response.json);
+    .insert({ username: res.username, email: res.email })
+    .select();
+  console.log("Data Supabase: ", error, data);
   return Response.json(data);
 }

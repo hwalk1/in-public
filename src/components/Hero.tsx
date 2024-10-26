@@ -1,13 +1,16 @@
 "use client";
 import React from "react";
+import { useState } from "react";
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
 import { useFormik } from "formik";
 import { schema } from "../app/Schemas/schema";
+import { bool } from "yup";
 
 console.log({ schema });
 
 export const Hero = () => {
+  const [success, setSuccess] = useState(Boolean);
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -25,7 +28,14 @@ export const Hero = () => {
         return response.json();
       };
       postData().then((data) => {
-        console.log(data);
+        if (data && data[0].id) {
+          setSuccess(true);
+          console.log("Success Data");
+          console.log("Data from onSubmit client side: ", data);
+        } else {
+          setSuccess(false);
+          console.log("Fail Data");
+        }
       });
     },
   });
@@ -48,45 +58,51 @@ export const Hero = () => {
         </p>
       </div>
 
-      <div className="flex h-full w-full ">
-        <form onSubmit={handleSubmit} className="flex h-full w-full ">
-          <div className="flex flex-col h-screen w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90 p-6">
-            <div className="flex w-full justify-center">
-              <div className="min-w-[600px] justify-center">
-                <Input
-                  type="email"
-                  label="Email"
-                  id="email"
-                  onChange={handleChange}
-                  value={values.email}
-                  isInvalid={!!errors.email}
-                  errorMessage={errors.email}
-                />
-                <Input
-                  type="text"
-                  label="Username"
-                  id="username"
-                  className="pt-6"
-                  onChange={handleChange}
-                  value={values.username}
-                  isInvalid={!!errors.username}
-                  errorMessage={errors.username}
-                />
+      {success ? (
+        <>
+          <h1>Your inline now!</h1>
+        </>
+      ) : (
+        <div className="flex h-full w-full ">
+          <form onSubmit={handleSubmit} className="flex h-full w-full ">
+            <div className="flex flex-col h-screen w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90 p-6">
+              <div className="flex w-full justify-center">
+                <div className="min-w-[600px] justify-center">
+                  <Input
+                    type="email"
+                    label="Email"
+                    id="email"
+                    onChange={handleChange}
+                    value={values.email}
+                    isInvalid={!!errors.email}
+                    errorMessage={errors.email}
+                  />
+                  <Input
+                    type="text"
+                    label="Username"
+                    id="username"
+                    className="pt-6"
+                    onChange={handleChange}
+                    value={values.username}
+                    isInvalid={!!errors.username}
+                    errorMessage={errors.username}
+                  />
+                </div>
+              </div>
+              <div className="flex justify-center pt-6 min-w-11">
+                <Button
+                  color="primary"
+                  size="lg"
+                  className="min-w-[150px]"
+                  type="submit"
+                >
+                  Submit
+                </Button>
               </div>
             </div>
-            <div className="flex justify-center pt-6 min-w-11">
-              <Button
-                color="primary"
-                size="lg"
-                className="min-w-[150px]"
-                type="submit"
-              >
-                Submit
-              </Button>
-            </div>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
+      )}
     </div>
   );
 };
