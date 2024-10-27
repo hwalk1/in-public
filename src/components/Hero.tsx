@@ -9,14 +9,17 @@ import { bool, string } from "yup";
 
 console.log({ schema });
 
-interface Response {
+interface Responses {
   email: string;
   username: string;
 }
 
 export const Hero = () => {
   const [success, setSuccess] = useState(Boolean);
-  const [respData, setRespData] = useState(Response);
+  const [respData, setRespData] = useState<Responses>({
+    email: "",
+    username: "",
+  });
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -36,7 +39,7 @@ export const Hero = () => {
       postData().then((data) => {
         if (data && data[0].id) {
           setSuccess(true);
-          setData({ email: data[0].email, username: data[0].username });
+          setRespData({ email: data[0].email, username: data[0].username });
           console.log("Success Data");
           console.log("Data from onSubmit client side: ", data);
         } else {
@@ -68,6 +71,8 @@ export const Hero = () => {
       {success ? (
         <>
           <h1>Your inline now!</h1>
+          <p>{respData.username}</p>
+          <p>{respData.email}</p>
         </>
       ) : (
         <div className="flex h-full w-full ">
