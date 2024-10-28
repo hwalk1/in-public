@@ -67,17 +67,19 @@ export const Hero = () => {
           Reserve your Username below and be the first to join the beta program.
         </p>
       </div>
-
-      {success ? (
-        <>
-          <h1>Your inline now!</h1>
-          <p>{respData.username}</p>
-          <p>{respData.email}</p>
-        </>
-      ) : (
-        <div className="flex h-full w-full ">
-          <form onSubmit={handleSubmit} className="flex h-full w-full ">
-            <div className="flex flex-col h-screen w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90 p-6">
+      <div className="h-screen w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90 p-6">
+        {success ? (
+          <>
+            <h1>Your inline now!</h1>
+            <p>{respData.username}</p>
+            <p>{respData.email}</p>
+          </>
+        ) : (
+          <div className="flex h-full w-full ">
+            <form
+              onSubmit={handleSubmit}
+              className="flex h-full w-full flex-col "
+            >
               <div className="flex w-full justify-center">
                 <div className="min-w-[600px] justify-center">
                   <Input
@@ -111,10 +113,10 @@ export const Hero = () => {
                   Submit
                 </Button>
               </div>
-            </div>
-          </form>
-        </div>
-      )}
+            </form>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
