@@ -5,9 +5,6 @@ import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
 import { useFormik } from "formik";
 import { schema } from "../app/Schemas/schema";
-import { bool, string } from "yup";
-
-console.log({ schema });
 
 interface Responses {
   email: string;
@@ -50,8 +47,9 @@ export const Hero = () => {
     },
   });
 
-  const { errors, touched, values, handleChange, handleSubmit } = formik;
-  console.log({ errors, touched });
+  const { errors, touched, values, handleChange, handleSubmit, handleBlur } =
+    formik;
+  console.log(touched, errors);
 
   return (
     <div className="pt-4 lg:pt-10">
@@ -88,7 +86,8 @@ export const Hero = () => {
                     id="email"
                     onChange={handleChange}
                     value={values.email}
-                    isInvalid={!!errors.email}
+                    onBlur={handleBlur}
+                    isInvalid={!!errors.email && touched.email}
                     errorMessage={errors.email}
                   />
                   <Input
@@ -98,8 +97,9 @@ export const Hero = () => {
                     className="pt-6"
                     onChange={handleChange}
                     value={values.username}
-                    isInvalid={!!errors.username}
+                    isInvalid={!!errors.username && touched.username}
                     errorMessage={errors.username}
+                    onBlur={handleBlur}
                   />
                 </div>
               </div>
