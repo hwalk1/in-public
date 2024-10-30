@@ -68,9 +68,11 @@ export const Hero = () => {
       <div className="h-screen w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90 p-6">
         {success ? (
           <>
-            <h1>Your inline now!</h1>
-            <p>{respData.username}</p>
-            <p>{respData.email}</p>
+            <div className="flex w-full justify-center">
+              <h1>Your inline now!</h1>
+              <h1>{respData.username}</h1>
+              <h1>{respData.email}</h1>
+            </div>
           </>
         ) : (
           <div className="flex h-full w-full ">
