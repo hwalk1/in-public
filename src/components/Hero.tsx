@@ -69,7 +69,7 @@ export const Hero = () => {
         {success ? (
           <>
             <div
-              className="flex-col w-full justify-center align-middle text-center text-[16
+              className="flex-col w-full justify-center align-middle text-center text-[18
             px]"
             >
               <h1 className="p-5">Your inline now!</h1>
