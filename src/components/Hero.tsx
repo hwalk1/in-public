@@ -74,7 +74,7 @@ export const Hero = () => {
             >
               <h1 className="p-5">Your inline now!</h1>
               <h1 className="p-10">{respData.username}</h1>
-              <h1>{respData.email}</h1>
+              <h1 className="p-10">{respData.email}</h1>
             </div>
           </>
         ) : (
