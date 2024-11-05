@@ -66,7 +66,7 @@ export const Hero = () => {
         </p>
       </div>
       <div className="h-screen w-full object-cover bg-gradient-to-t from-indigo-500 backdrop-hue-rotate-90 p-6">
-        {true ? (
+        {success ? (
           <>
             <div className="flex-col w-full justify-center align-middle text-center">
               <h1 className="p-5 text-[32px]">Your inline now!</h1>
