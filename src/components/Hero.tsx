@@ -69,9 +69,9 @@ export const Hero = () => {
         {success ? (
           <>
             <div className="flex-col w-full justify-center align-middle text-center">
-              <h1 className="p-5 text-[32px]">Your inline now!</h1>
-              <h1 className="p-5 text-[20px]">{respData.username}</h1>
-              <h1 className="p-5 text-[20px]">{respData.email}</h1>
+              <h1 className="p-5 text-[32px]">
+                You&apos;re inline {respData.username}
+              </h1>
             </div>
           </>
         ) : (
